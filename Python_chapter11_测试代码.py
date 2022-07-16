@@ -108,6 +108,7 @@ class AnonymousSurvey():
     def show_results(self):
         """显示收集到的所有答卷"""
         print("Survey results:")
+
         for response in self.responses:
             print('- ' + response)
 ##为证明AnonymousSurvey 类能够正确地工作，我们来编写一个使用它的程序：
@@ -207,3 +208,4 @@ class TestEmployee(unittest.TestCase):
             self.assertEqual(qys_raise, self.qian_yu_sen.give_raise(qys_raise))
             
 unittest.main()
+print("-----")
