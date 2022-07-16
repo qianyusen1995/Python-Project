@@ -1,0 +1,3 @@
+In Python you can use functions to operate actions
+In Python you can use class to integraty functions into an entity
+In Python you can use instance to examplify class
