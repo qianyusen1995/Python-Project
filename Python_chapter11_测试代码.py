@@ -208,4 +208,4 @@ class TestEmployee(unittest.TestCase):
             self.assertEqual(qys_raise, self.qian_yu_sen.give_raise(qys_raise))
             
 unittest.main()
-print("-----")
+print("----------")
