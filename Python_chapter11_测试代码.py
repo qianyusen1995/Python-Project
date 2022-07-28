@@ -38,7 +38,7 @@ class NamesTestCase(unittest.TestCase): #用于包含一系列针对get_formatte
         """能够正确地处理像Janis Joplin这样的姓名吗？"""
         formatted_name = get_formatted_name('janis', 'joplin')
         self.assertEqual(formatted_name, 'Janis Joplin')     
-unittest.main()
+unittest.main() 
 #   11.1.5　添加新测试
 import unittest
 from chapter_11.name_function import get_formatted_name
