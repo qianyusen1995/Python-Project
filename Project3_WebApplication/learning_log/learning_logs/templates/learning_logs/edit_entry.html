@@ -1,0 +1,24 @@
+{% extends "learning_logs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>Edit entry:</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <!-- 实参action 将表单发回给视图函数edit_entry(); views.py.edit_entry()->context->entry -->
+  <!-- entry.id: 们将条目ID作为一个实参，让视图对象能够修改POST正确的条目对象 -->
+  <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post' class = 'form'>
+
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+    <!-- 将提交按钮命名为save changes，以提醒用户：单击该按钮将保存所做的编辑，而不是创建一个新条目 -->
+    <button name="submit" class="btn btn-primary">save changes</button>
+    {% endbuttons %}
+
+  </form>
+
+{% endblock content %}

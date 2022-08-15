@@ -1,0 +1,8 @@
+<p>
+  <!-- #标题设置为到主页的链接; 主页的链接后面添加了一个连字符-->
+  <a href="{% url 'pizzas:index' %}">Pizzeria</a> -
+  <!-- 显示所有主题的页面的链接 -->
+  <a href="{% url 'pizzas:pizzas' %}">Pizza</a>
+</p>
+
+{% block content %}{% endblock content %}

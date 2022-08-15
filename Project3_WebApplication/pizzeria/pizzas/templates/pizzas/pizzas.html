@@ -1,0 +1,24 @@
+<!-- 继承base.html -->
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+<p>Pizzas</p>
+  <!-- 这个网页的主体是一个项目列表，其中列出了用户输入的主题。在标准HTML中，项目列表被称为无序列表，用标签<ul></ul> 表示。 -->
+  <ul>
+    <!-- 将每个主题转换为一个项目列表项 -->
+    {% for pizza in pizzas %}
+      <!-- 要在模板中打印变量，需要将变量名用双花括号括起来。每次循环时,代码{{ topic }} 都被替换为topic 的当前值。这些花括号不会出现在网页中，它们只是用于告诉Django我们使用了一个模板变量。 -->
+      <li>
+        <!-- 主题列表中的每个主题都是一个链接，链接到显示相应主题的页面pizza.html，如http://localhost:8000/topics/1/ -->
+        <a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a>
+      </li>
+      <!-- 告诉Django在列表topics 为空时该怎么办 -->
+    {% empty %} 
+      <!-- 告诉用户还没有添加任何主题 -->
+      <li>No topics have been added yet.</li>
+    <!-- 终止for循环 -->
+    {% endfor %}
+  <!-- 结束项目列表 -->
+  </ul>
+
+{% endblock content %}

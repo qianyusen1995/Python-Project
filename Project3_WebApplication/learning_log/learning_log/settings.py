@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # 我的应用程序 My App
     'learning_logs',
+    'users',
+
+    # 第三方应用程序
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +128,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# My Settings
+LOGIN_URL = '/users/login/'
+
+# django-bootstrap3的设置
+BOOTSTRAP3 = {
+	'include_jquery': True,
+    }
+
+#STATICFILES_DIRS = ( os.path.join('static'), )

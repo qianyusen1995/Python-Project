@@ -1,0 +1,34 @@
+<!-- 继承base.html -->
+{% extends "learning_logs/base.html" %}
+
+{% block header %}
+<h1>Topics</h1>
+{% endblock header %}
+
+{% block content %}
+
+  <!-- 这个网页的主体是一个项目列表，其中列出了用户输入的主题。在标准HTML中，项目列表被称为无序列表，用标签<ul></ul> 表示。 -->
+  <ul>
+    <!-- 将每个主题转换为一个项目列表项，topics来自base.html: "learning_logs:topics"-->
+    {% for one_topic in topics %}
+      <li>
+        <h3>
+          <!-- 要在模板中打印变量，需要将变量名用双花括号括起来。每次循环时,代码{{ topic }} 都被替换为topic的当前值。这些花括号不会出现在网页中，它们只是用于告诉Django我们使用了一个模板变量-->
+          <!-- 主题列表中每个主题都是一个链接，链接到显示相应主题的页面-->
+          <!-- url.py: name = 'topic'-->
+          <!-- 这个URL模式(urls.py)要求提供实参topic_id，因此我们在模板(topics.html)标签中添加了属性topic.id: (来源views.py-> def topics() -> context = {'topics': topics}) -> topics = Topic.objects遍历来的) -->
+          <a href="{% url 'learning_logs:topic' one_topic.id %}">{{ one_topic }}</a>
+        </h3>
+      </li>
+    <!-- 告诉Django在列表topics 为空时该怎么办 -->
+    {% empty %}
+      <!-- 告诉用户还没有添加任何主题 -->
+      <li>No topics have been added yet.</li>
+    <!-- 终止for循环 -->
+    {% endfor %}
+  <!-- 结束项目列表 -->
+  </ul>
+
+  <h3><a href="{% url 'learning_logs:new_topic' %}">Add a new topic</h3>
+  
+{% endblock content %}

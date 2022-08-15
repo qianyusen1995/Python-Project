@@ -1,0 +1,38 @@
+<!-- 继承base.html -->
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+  <!-- 显示当前主题 -->
+  <p>Topic: {{ topic }}</p>
+
+  <p>Entries:</p>
+
+  <p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}">add new entry</a>
+  </p>
+
+    <!-- 定义每个条目的项目列表 -->
+    <ul>
+      <!-- 遍历条目 -->
+      {% for entry in entries %}
+        <li>
+          <!-- 列出时间戳；"|"模板过滤器：对模板变量值进行修改的函数 -->
+          <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+          <!-- 过滤器linebreaks将包含换行符的长条目转换为浏览器能够理解的格式，以免显示为一个不间断的文本块 -->
+          <p>{{ entry.text|linebreaks }}</p>
+          <p>
+            <!-- 给每个条目添加到页面edit_entry 的链接；编辑链接在每个条目的日期和文本后-->
+            <!-- 使用模板标签根据URL模式edit_entry & 当前条目的ID属性（entry.id ）来确定URL -->
+            <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a>
+          </p>
+        </li>
+      <!-- 打印消息：当前主题还没有条目 -->
+      {% empty %}
+        <li>
+        There are no entries for this topic yet.
+        </li>
+      {% endfor %}
+    </ul>
+
+{% endblock content %}

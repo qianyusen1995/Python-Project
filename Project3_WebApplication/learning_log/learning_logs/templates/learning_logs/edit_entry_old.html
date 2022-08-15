@@ -1,0 +1,18 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+
+  <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+  <p>Edit entry:</p>
+
+  <!-- 实参action 将表单发回给视图函数edit_entry(); views.py.edit_entry()->context->entry -->
+  <!-- entry.id: 们将条目ID作为一个实参，让视图对象能够修改POST正确的条目对象 -->
+  <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- 将提交按钮命名为save changes，以提醒用户：单击该按钮将保存所做的编辑，而不是创建一个新条目 -->
+    <button name="submit">save changes</button>
+  </form>
+
+{% endblock content %}

@@ -1,9 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 # Create your models here.
+
 class Topic(models.Model): #继承了Model: Django中一个定义了模型基本功能的类
     """用户学习的主题"""
     text = models.CharField(max_length=200) #属性text是一个CharField————由字符或文本组成的数据,存储少量的文本；必须告诉Django该在数据库中预留多少空间
     date_added = models.DateTimeField(auto_now_add=True) #每当用户创建新主题时，这都让Django将这个属性自动设置成当前日期和时间。
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):#Django调用方法__str__() 来显示模型的简单表示
         """返回模型的字符串表示"""
         return self.text #返回存储在属性text 中的字符串

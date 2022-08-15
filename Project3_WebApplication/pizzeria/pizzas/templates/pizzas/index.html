@@ -1,3 +1,7 @@
-<p>pizzas</p>
+<!-- Django知道它继承了哪个父模板 -->
+{% extends "pizzas/base.html" %}
 
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores a consequatur ut, quos officiis dolor nisi molestias magni recusandae eligendi quo ullam at labore doloremque atque suscipit sequi? Reprehenderit, ut!</p>
+{% block content %}
+<p>Pizza helps you keep track of your learning, for any topic you're
+learning about.</p>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "learning_logs/base.html" %}
+{% block content %}
+
+  <!--views.py: topic(): context: topic-->
+  <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+  <p>Add a new entry:</p>
+  <!-- 表单的实参action 包含URL中的topic_id 值，让视图函数能够将新条目关联到正确的主题 -->
+  <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>add entry</button>
+  </form>
+
+{% endblock content %}
