@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Topic, Entry #导入了与所需数据相关联的模型
 from .forms import TopicForm, EntryForm
 
+
 # Create your views here.
 def index(request):
     """学习笔记的主页"""
