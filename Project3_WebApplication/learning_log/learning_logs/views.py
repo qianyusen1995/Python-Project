@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse #from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -24,7 +24,8 @@ def topics(request): #request: Django从服务器那里收到的request对象
 #这个函数接受正则表达式(?P<topic_id>\d+)捕获的值，并将其存储到topic_id中
 def topic(request, topic_id): 
     """显示单个主题及所有的条目"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
+    #topic = Topic.objects.get(id=topic_id)
 
     #确认请求的主题属于当前用户
     check_topic_owner(request, topic)
@@ -55,7 +56,8 @@ def new_topic(request):
 
 @login_required
 def new_entry(request, topic_id): #定义包含形参topic_id, 用于存储从URL中获得的值
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
+    #topic = Topic.objects.get(id=topic_id)
     check_topic_owner(request, topic)
     if request.method != 'POST':
         # 未提交数据：创建一个空表单
@@ -74,7 +76,8 @@ def new_entry(request, topic_id): #定义包含形参topic_id, 用于存储从UR
 @login_required
 def edit_entry(request, entry_id):
     """编辑既有条目"""
-    entry = Entry.objects.get(id=entry_id) #获取用户要修改的条目对象，
+    entry = get_object_or_404(Entry, id=entry_id)
+    #entry = Entry.objects.get(id=entry_id) #获取用户要修改的条目对象，
     topic = entry.topic #以及与该条目相关联的主题
     check_topic_owner(request, topic)
     if request.method != 'POST':
