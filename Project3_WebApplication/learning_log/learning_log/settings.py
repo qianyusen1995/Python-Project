@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-STATIC_URL = '/static/' # 能够访问静态文件的URL路径
-STATIC_ROOT = os.path.join(BASE_DIR,'static') 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q$a36q$wm=p=2ezt6^0$5w_t#j375drtdj@b9!-xc7vwpja^!#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #显示默认的Django调试页面
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -65,7 +62,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'learning_log/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,6 +80,7 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -154,7 +152,9 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARD_PROTO', 'https') #支持http请求
 
     #支持所有主机的头(gost header)
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['learning-log.herokuapp.com']
+
+    DEBUG = False
 
     #静态资产配置
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
