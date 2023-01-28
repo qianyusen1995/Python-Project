@@ -3,7 +3,7 @@ class Dog():
     """一次模拟小狗的简单尝试"""
     def __init__(self, name, age):
         """根据Dog 类创建的实例初始化属性name和age"""
-        self.name = name #以self 为前缀的变量都可供类中的所有方法使用，还可以通过类的任何实例来访问这些变量
+        self.name = name #以self为前缀的变量都可供类中的所有方法使用，还可以通过类的任何实例来访问这些变量
         self.age = age
 
     def sit(self):
