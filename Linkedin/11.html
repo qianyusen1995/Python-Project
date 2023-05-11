@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<soapenv:Fault>
+			<faultcode>soapenv:Server</faultcode>
+			<faultstring>{http://tns.tibco.com/bw/fault}ServiceBindingFault: com.tibco.bx.core.faults.BxException: Error occurred while processing Service Request message for Operation [{http://www.tibco.com/ff8000f16efe417d85af16bdeacdb713/SOAPServiceBinding}CreateOrSubmitRequest], SoapServiceBinding [SOAPServiceBinding], Application [RequestWS.application:1.0]  due to exception [org.apache.axiom.om.DeferredParsingException].Root Exception message: com.ctc.wstx.exc.WstxUnexpectedCharException: Unexpected character ' ' (code 32); expected a semi-colon after the reference for entity 'R'
+Caused by: com.tibco.bx.plugin.ActivityFault: Error occurred while processing Service Request message for Operation [{http://www.tibco.com/ff8000f16efe417d85af16bdeacdb713/SOAPServiceBinding}CreateOrSubmitRequest], SoapServiceBinding [SOAPServiceBinding], Application [RequestWS.application:1.0]  due to exception [org.apache.axiom.om.DeferredParsingException].Root Exception message: com.ctc.wstx.exc.WstxUnexpectedCharException: Unexpected character ' ' (code 32); expected a semi-colon after the reference for entity 'R'\n</faultstring>
+			<faultactor/>
+			<detail/>
+		</soapenv:Fault>
+	</soapenv:Body>
+</soapenv:Envelope>
