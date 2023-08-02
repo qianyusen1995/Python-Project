@@ -1,4 +1,4 @@
-#!"C:\Users\QianYus\OneDrive\#Python 0726\PythonProject\Jefferson-Python-Learning\Project3_WebApplication\learning_log\ll_env\Scripts\python.exe"
+#!"C:\Users\QianYus\OneDrive\#Python 0726\PythonProject\Python-Project\Project3_WebApplication\learning_log\ll_env\Scripts\python.exe"
 # EASY-INSTALL-ENTRY-SCRIPT: 'static3==0.7.0','console_scripts','static'
 import re
 import sys
