@@ -12,7 +12,7 @@ current_number = 0
 while current_number < 10:
     current_number += 1
     if current_number % 2 == 0:  #如果结果为0（意味着current_number 可被2整除），就执行continue 语句，让Python忽略余下的代码，
-        continue 
+        continue
     print(current_number)
 #7.2.2 让用户选择何时退出 quit
 prompt = "\nTell me something, and I will repeat it back to you:"
